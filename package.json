@@ -1,0 +1,44 @@
+{
+  "name": "ghostmaildev",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GhostMailDev - local-only SMTP server with web inbox",
+  "scripts": {
+    "dev": "NODE_ENV=development ts-node --project tsconfig.server.json --transpile-only server/index.ts",
+    "build": "next build && tsc -p tsconfig.server.json",
+    "lint": "next lint",
+    "start": "NODE_ENV=production node dist/server/index.js"
+  },
+  "keywords": [
+    "smtp",
+    "mail",
+    "nextjs",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.2",
+    "mailparser": "^3.7.4",
+    "next": "^15.5.4",
+    "nodemailer": "^7.0.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "smtp-server": "^3.14.0"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.4.6",
+    "@types/node": "^24.5.2",
+    "@types/nodemailer": "^7.0.1",
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "@types/smtp-server": "^3.5.12",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

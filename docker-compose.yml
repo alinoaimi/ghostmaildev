@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  ghostmaildev:
+    build: .
+    container_name: ghostmaildev
+    ports:
+      - '3000:3000'
+      - '2525:2525'
+    environment:
+      - SMTP_DOMAIN=ghostmail.local
+      - SMTP_USERNAME=ghost
+      - SMTP_PASSWORD=ghostmail
+    volumes:
+      - ghostmail_data:/app/data
+volumes:
+  ghostmail_data:
