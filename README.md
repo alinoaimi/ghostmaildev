@@ -1,14 +1,26 @@
 # GhostMailDev
+GhostMailDev is a lightweight, local-only mail server and web client intended solely for application development and testing. It provides a disk-backed SMTP listener, a Next.js web UI for composing and inspecting messages, and an optional zero-dependency Docker image for easy local deployment. Not for production use.
 
-GhostMailDev is a lightweight, local-only mail server and web client designed for UI demos, QA automation, and application development. It ships with a zero-dependency Docker image, an SMTP server that stores mail on disk, and a Next.js web interface for composing and reading messages.
+## Disclaimer
+This tool is vibecoded, it is meant to be used for testing during development, not for use in production. It might have security issues.
 
 ## Features
 
-- **Self-contained local mail stack** – SMTP server (port `2525`) and React web UI (port `3000`) run inside a single Node.js process.
+- **Self-contained local mail stack** – SMTP server (port `2525`) and React web UI (port `3002`) run inside a single Node.js process.
 - **Inbox viewer** – View all delivered messages, inspect recipients, and render HTML or plain-text bodies.
 - **Composer** – Send new messages through the local SMTP relay without leaving the browser.
 - **Config dashboard** – Copy host, port, and credential details for use with other tools.
 - **Disk-backed storage** – Emails are persisted to `data/emails.json` so they survive restarts when the volume is mounted.
+
+## Screenshots
+
+| Inbox View | Compose Email |
+|------------|---------------|
+| <img src="assets/screenshots/inbox.png" height="300" width="auto"> | <img src="assets/screenshots/compose.png" height="300" width="auto"> |
+
+| Info | |
+|----------------|--|
+| <img src="assets/screenshots/info.png" height="300" width="auto"> | |
 
 ## Tech stack
 
@@ -39,7 +51,7 @@ The development server runs both the SMTP listener and the Next.js dev server wi
 npm run dev
 ```
 
-The web UI is available at <http://localhost:3000>, and the SMTP endpoint listens on port `2525`.
+The web UI is available at <http://localhost:3002>, and the SMTP endpoint listens on port `2525`.
 
 ### Build & run for production
 
@@ -55,7 +67,7 @@ Build and run the container locally:
 ```bash
 docker build -t ghostmaildev .
 docker run --name ghostmaildev \
-  -p 3000:3000 \
+  -p 3002:3002 \
   -p 2525:2525 \
   -v ghostmail_data:/app/data \
   ghostmaildev
@@ -69,7 +81,7 @@ docker compose up --build
 
 By default the container exposes:
 
-- Web UI: <http://localhost:3000>
+- Web UI: <http://localhost:3002>
 - SMTP server: `localhost:2525`
 - Credentials: username `ghost`, password `ghostmail`
 
@@ -115,8 +127,8 @@ Messages delivered with these settings will appear instantly inside the web inbo
 
 | Variable            | Default             | Description                              |
 |---------------------|---------------------|------------------------------------------|
-| `PORT`              | `3000`              | Port for the web UI                      |
-| `SMTP_HOST`         | `0.0.0.0`           | Address for the SMTP listener            |
+| `PORT`              | `3002`              | Port for the web UI                      |
+| `SMTP_HOST`         | `localhost or 127.0.0.1`           | Address for the SMTP listener            |
 | `SMTP_PORT`         | `2525`              | SMTP listener port                        |
 | `SMTP_DOMAIN`       | `ghostmail.local`   | Default domain shown in the UI           |
 | `SMTP_USERNAME`     | `ghost`             | Username required to authenticate        |
@@ -130,6 +142,8 @@ Messages delivered with these settings will appear instantly inside the web inbo
 - The composer uses the SMTP credentials above. If you change them via environment variables, the UI updates automatically.
 - To reset the mailbox, click the **Clear** button in the inbox header or call `DELETE /api/emails`.
 
-## License
+## Roadmap
 
-MIT
+- [ ] Add support for email attachments in the composer and inbox viewer
+- [ ] Implement a WYSIWYG editor for composing HTML emails
+- [ ] Add a view to inspect the raw email source (headers, MIME parts, and raw payload)

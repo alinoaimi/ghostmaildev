@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "demo-1",
+    "from": "welcome@ghostmail.local",
+    "to": [
+      "user@ghostmail.local"
+    ],
+    "subject": "Welcome to GhostMailDev!",
+    "text": "Hi there!\n\nWelcome to GhostMailDev, your ultimate email development tool. Start sending and receiving emails effortlessly.\n\nBest regards,\nThe GhostMailDev Team",
+    "date": "2025-09-01T09:00:00.000Z",
+    "html": "<p>Hi there!</p><p>Welcome to <strong>GhostMailDev</strong>, your ultimate email development tool. Start sending and receiving emails effortlessly.</p><p>Best regards,<br>The GhostMailDev Team</p>"
+  }
+]

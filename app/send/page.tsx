@@ -7,15 +7,19 @@ export const metadata = {
 
 export default function SendPage() {
   return (
-    <Box>
-      <Typography variant="h4" sx={{ fontWeight: 600, mb: 2 }}>
-        Compose an Email
-      </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-        Use this form to send messages through the local SMTP server. Deliveries are stored locally and appear instantly in the
-        inbox.
-      </Typography>
-      <SendEmailForm />
+    <Box sx={{ height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ mb: 3, flexShrink: 0 }}>
+        <Typography variant="h4" sx={{ fontWeight: 600, mb: 2 }}>
+          Compose an Email
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Use this form to send messages through the local SMTP server. Deliveries are stored locally and appear instantly in the
+          inbox.
+        </Typography>
+      </Box>
+      <Box sx={{ flexGrow: 1 }}>
+        <SendEmailForm />
+      </Box>
     </Box>
   );
 }

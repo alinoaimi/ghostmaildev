@@ -19,7 +19,7 @@ export default function InfoPage() {
   const config = SMTP_CONFIG;
 
   return (
-    <Box>
+    <Box sx={{ height: '100%', overflowY: 'auto' }}>
       <Typography variant="h4" sx={{ fontWeight: 600, mb: 2 }}>
         SMTP Configuration
       </Typography>
@@ -49,7 +49,7 @@ export default function InfoPage() {
           </List>
           <Divider sx={{ my: 2 }} />
           <Typography variant="body2" color="text.secondary">
-            GhostMailDev listens on all interfaces by default (0.0.0.0). When running inside Docker, the SMTP server is exposed
+            GhostMailDev listens on all interfaces by default (127.0.0.1 or localhost). When running inside Docker, the SMTP server is exposed
             on the container port {config.PORT}.
           </Typography>
         </CardContent>

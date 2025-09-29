@@ -48,7 +48,7 @@ export default function SendEmailForm() {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} noValidate>
+    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ height: '100%', overflowY: 'auto' }}>
       <Stack spacing={3}>
         <Typography variant="h6">Compose Email</Typography>
         <TextField
@@ -72,6 +72,7 @@ export default function SendEmailForm() {
           onChange={(event) => setBody(event.target.value)}
           multiline
           minRows={6}
+          maxRows={10}
           required
         />
         <Button type="submit" variant="contained" size="large" disabled={submitting}>
