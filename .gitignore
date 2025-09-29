@@ -9,3 +9,5 @@ yarn-error.log*
 .env*
 dist
 coverage
+data/*
+data/emails.json

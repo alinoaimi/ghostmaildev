@@ -18,10 +18,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./
 COPY --from=build /app/next.config.js ./
 COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/data ./data
 
-EXPOSE 3000 2525
+EXPOSE 3002 2525
 
 CMD ["node", "dist/server/index.js"]

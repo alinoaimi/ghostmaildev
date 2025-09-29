@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2019",
-    "outDir": "dist/server",
+  "outDir": "dist",
+  "rootDir": ".",
     "noEmit": false,
     "isolatedModules": false,
     "jsx": "preserve"

@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+dist
+coverage
+.git
+.gitignore
+Dockerfile
+.dockerignore
+Dockerfile.dev
+.yarn
+.pnp.*
+*.log
+.env
+.env.local
+.env.*
+.vscode
