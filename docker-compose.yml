@@ -4,7 +4,7 @@ services:
     build: .
     container_name: ghostmaildev
     ports:
-      - '3000:3000'
+      - '3002:3002'
       - '2525:2525'
     environment:
       - SMTP_DOMAIN=ghostmail.local
